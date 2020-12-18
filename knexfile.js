@@ -20,7 +20,8 @@ const commonSettings = {
   },
   migrations: {
     tableName: 'knex_migrations',
-    directory: migrationFolder
+    directory: migrationFolder,
+    ext: 'ts'
   },
   seeds: {
     directory: path.join(migrationFolder, 'seeds')
