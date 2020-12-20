@@ -3,7 +3,7 @@ import * as Knex from 'knex';
 export async function up(knex: Knex): Promise<any> {
   await knex.schema.createTable('Order', table => {
     table
-      .integer('id')
+      .increments('id')
       .notNullable()
       .primary();
 
@@ -20,5 +20,5 @@ export async function up(knex: Knex): Promise<any> {
 }
 
 export async function down(knex: Knex): Promise<any> {
-  knex.schema.dropTable('Order');
+  await knex.schema.dropTable('Order');
 }
