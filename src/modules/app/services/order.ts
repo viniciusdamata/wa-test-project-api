@@ -8,6 +8,11 @@ export class OrderService {
   constructor(private orderRepository: OrderRepository) {}
 
   public async save(model: IOrder): Promise<Order> {
+    if (model.id) {
+      const orderUpdate = await this.orderRepository.update(model);
+      return orderUpdate;
+    }
+
     const order = await this.orderRepository.insert(model);
     return order;
   }
